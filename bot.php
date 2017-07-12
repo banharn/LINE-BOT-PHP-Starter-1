@@ -1,6 +1,7 @@
 
 <?php
 header("content-type:text/html;charset=utf-8");
+header('Access-Control-Allow-Origin: *');
 $message = $_REQUEST['message'];
 
 $chOne = curl_init();

@@ -9,6 +9,6 @@
 </head>
 <body>
 <script src="https://enigmatic-savannah-63815.herokuapp.com/js/firebase.js" ></script>
-<script type="text/javascript"  src='js/test1.js'></script>
+<script type="text/javascript"  src='https://enigmatic-savannah-63815.herokuapp.com/js/test1.js'></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>หน้าแรก</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <script src="https://enigmatic-savannah-63815.herokuapp.com/js/firebase.js" ></script>
    <script src="https://enigmatic-savannah-63815.herokuapp.com/js/jquery.min.js" charset="UTF-8"></script>
    <link rel="stylesheet" href="https://enigmatic-savannah-63815.herokuapp.com/css/bootstrap.min.css">  
@@ -47,7 +47,7 @@ var table = $('#myTable').DataTable();
  float:right;  
 }
     body {
-	padding-top: 15px;
+	padding-top: 20px;
 }
 select {  text-align-last:center; }
     #contacts p, 

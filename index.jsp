@@ -86,7 +86,7 @@ td.highlight {
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.jsp">หน้าแรก</a></li>
             <li><a href="report.jsp">รายงาน</a></li>
-            <li><a href="#contact">เกี่ยวกับ</a></li>
+            
           </ul>
                 
            <div class="col-sm-2 col-md-2  navbar-right">

@@ -5,7 +5,7 @@
 <title>หน้าแรก</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://enigmatic-savannah-63815.herokuapp.com/js/firebase.js" ></script>
-    <script src="js/jquery.min.js" charset="UTF-8"></script>
+    <script src="https://enigmatic-savannah-63815.herokuapp.com/js/jquery.min.js" charset="UTF-8"></script>
 </head>
 <body>
 <script src="https://enigmatic-savannah-63815.herokuapp.com/js/firebase.js" ></script>

@@ -47,7 +47,7 @@ var table = $('#myTable').DataTable();
  float:right;  
 }
     body {
-	padding-top: 20px;
+	padding-top: 25px;
 }
 select {  text-align-last:center; }
     #contacts p, 

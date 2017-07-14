@@ -41,7 +41,7 @@
           <ul class="nav navbar-nav">
             <li ><a href="index.jsp">หน้าแรก</a></li>
             <li class="active"><a href="report.jsp">รายงาน</a></li>
-            <li><a href="#contact">เกี่ยวกับ</a></li>
+
           </ul>
 
         </div><!--/.nav-collapse -->

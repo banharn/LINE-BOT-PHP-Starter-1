@@ -28,32 +28,32 @@
                   <input class="form-control" id="S_BARCODE_NO" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
                </div>
                <div class="form-group">
-                  <label for="inputdefault">รหัสสินค้า :</label>
-                  <input class="form-control" id="inputdefault" type="text"   >
+                  <label for="S_PRODUCT_ID">รหัสสินค้า :</label>
+                  <input class="form-control" id="S_PRODUCT_ID" type="text"  value="" >
                </div>
                <div class="form-group">
                   <label for="S_NAME">ชื่อสินค้า :</label>
-                  <input class="form-control" id="S_NAME" type="text"   >
+                  <input class="form-control" id="S_NAME" type="text"   value="" >
                </div>
                <div class="form-group">
                   <label for="S_WEIGHT">น้ำหนัก :</label>
-                  <input class="form-control" id="S_WEIGHT" type="text" >
+                  <input class="form-control" id="S_WEIGHT" type="text"  value="">
                </div>
                <div class="form-group">
                   <label for="S_SUPPLIER">ชื่อ Supplier :</label>
-                  <input class="form-control" id="S_SUPPLIER" type="text"   >
+                  <input class="form-control" id="S_SUPPLIER" type="text"   value="" >
                </div>
                <div class="form-group">
                   <label for="S_QUANTITY">จำนวน :</label>
-                  <input class="form-control" id="S_QUANTITY" type="text"   >
+                  <input class="form-control" id="S_QUANTITY" type="text"  value=""  >
                </div>
                <div class="form-group">
                   <label for="S_CAUSE">สาเหตุ :</label>
-                  <textarea class="form-control" rows="2" id="S_CAUSE"></textarea>
+                  <textarea class="form-control" rows="2" id="S_CAUSE"  value=""></textarea>
                </div>
                <div class="form-group">
                   <label for="S_PO">PO :</label>
-                  <textarea class="form-control" rows="2" id="S_PO"></textarea>
+                  <textarea class="form-control" rows="2" id="S_PO"  value=""></textarea>
                </div>
             </div>
             <div class="panel-footer" style="height: 50px;">

@@ -70,7 +70,7 @@ td.highlight {
 </style>
 </head>
 <body>
-
+<?php  include "index.php";?>
   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

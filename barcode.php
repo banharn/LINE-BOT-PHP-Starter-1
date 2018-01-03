@@ -66,5 +66,32 @@
             </div>
          </div>
       </div>
+      
+      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD8ZxW1ij4pXQnXEupGG2KUQSn-gPxo-io",
+    authDomain: "barcode-final.firebaseapp.com",
+    databaseURL: "https://barcode-final.firebaseio.com",
+    projectId: "barcode-final",
+    storageBucket: "barcode-final.appspot.com",
+    messagingSenderId: "320508292944"
+  };
+  firebase.initializeApp(config);
+   var dbRef = firebase.database().ref();
+var contactsRef = dbRef.child('Products');
+contactsRef.push({
+    "S_BARCODE_NO": "8851952350161",
+    "S_NAME": "CRYSTAL 600ML.",
+    "S_WEIGHT": "600",
+   "S_SUPPLIER": "เสริมสุข",
+   "S_QUANTITY": "12",
+   "S_CAUSE": "ไม่มี",
+   "S_PO": "ไม่มี",
+});
+   
+</script>
+      
    </body>
 </html>

@@ -88,7 +88,7 @@ contactsRef.push({
    "S_SUPPLIER": "เสริมสุข",
    "S_QUANTITY": "12",
    "S_CAUSE": "ไม่มี",
-   "S_PO": "ไม่มี",
+   "S_PO": "ไม่มี"
 });
    
 </script>

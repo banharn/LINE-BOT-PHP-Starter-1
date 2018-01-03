@@ -84,7 +84,7 @@ var contactsRef = dbRef.child('Products');
 contactsRef.on("child_added", function(snap) {
     			  var key = snap.key;
                if(snap.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value){
-                  cosole.log("pass");
+                  console.log("pass");
                   document.getElementById('S_BARCODE_NO').value= item.val().S_BARCODE_NO;
        document.getElementById('S_PRODUCT_ID').value= item.val().S_PRODUCT_ID;
        document.getElementById('S_NAME').value= item.val().S_NAME;
@@ -94,7 +94,7 @@ contactsRef.on("child_added", function(snap) {
        document.getElementById('S_CAUSE').value= item.val().S_CAUSE;
        document.getElementById('S_PO').value= item.val().S_PO;
                   }else{
-                  cosole.log("error");
+                  console.log("error");
                   }
     			 
     			});

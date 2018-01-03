@@ -129,7 +129,7 @@ $(document).ready(function () {
            $('#myModal').modal('show').on('shown.bs.modal', function() {
       
     });
-       }else{
+       }else if(document.getElementById('S_PRODUCT_ID').value == ""){
        console.log("save failer");
        //alert("กรุณากรอกรหัสสินค้า");
            //document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";

@@ -102,10 +102,10 @@
  $('#save').click(function () {
     if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
-       document.getElementById('error').innerHTML = "";
+       alert("บันทึกสำเร็จ");
        }else{
        console.log("save failer");
-       document.getElementById('error').innerHTML = "error";
+       alert("กรุณากรอกรหัสสินค้า");
        }
 
 });

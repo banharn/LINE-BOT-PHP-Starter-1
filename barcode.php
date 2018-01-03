@@ -22,7 +22,6 @@
                </div>-->
          <div class="panel panel-success">
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
-            <form id="SendForm">
             <div class="panel-body">
                <div class="form-group">
                   <label for="S_BARCODE_NO">Barcode Number :</label>
@@ -30,11 +29,12 @@
                </div>
                <div class="form-group">
                   <label for="S_PRODUCT_ID">รหัสสินค้า :</label>
-                  <input class="form-control" id="S_PRODUCT_ID" type="text"  value="" required>
+                  <input class="form-control" id="S_PRODUCT_ID" type="text"  value="" >
+                  <p id="error" style="color:  #f00;"></p>
                </div>
                <div class="form-group">
                   <label for="S_NAME">ชื่อสินค้า :</label>
-                  <input class="form-control" id="S_NAME" type="text"   value="" required>
+                  <input class="form-control" id="S_NAME" type="text"   value="" >
                </div>
                <div class="form-group">
                   <label for="S_WEIGHT">น้ำหนัก :</label>
@@ -66,7 +66,6 @@
                   </button>
                </div>
             </div>
-                 </form>
          </div>
       </div>
       
@@ -101,10 +100,12 @@
     			});
    
  $('#save').click(function () {
-    if(document.getElementById('S_PRODUCT_ID').value != null || document.getElementById('S_PRODUCT_ID').value != ""){
+    if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
+       document.getElementById('error').innerHTML = "";
        }else{
        console.log("save failer");
+       document.getElementById('error').innerHTML = "error";
        }
 
 });

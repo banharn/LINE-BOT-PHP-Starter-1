@@ -74,10 +74,10 @@
             <div class="modal-content">
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h4 class="modal-title" id="headD">Modal Header</h4>
                </div>
                <div class="modal-body">
-                  <p id="mess">Some text in the modal.</p>
+                  <p id="mess"></p>
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -122,7 +122,8 @@
               console.log("save");
               //alert("บันทึกสำเร็จ");
               //document.getElementById('mess').innerHTML = "บันทึกสำเร็จ";
-                   $("#mess").html("บันทึกสำเร็จ");
+                   $("#headD").html("ALERT!!");
+                   $("#mess").html("ส่งข้อมูลสำเร็จ");
                   $('#myModal').modal('show').on('shown.bs.modal', function() {        
            });
               }else if(document.getElementById('S_PRODUCT_ID').value == ""){
@@ -130,7 +131,8 @@
               //alert("กรุณากรอกรหัสสินค้า");
                   //document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
                  //$('#myModal').modal('show');
-                 $("#mess").html("กรุณากรอกรหัสสินค้า");
+                 $("#headD").html("WARNING!!");
+                 $("#mess").html("กรุณาระบุรหัสสินค้า");
                   $('#myModal').modal('show').on('shown.bs.modal', function() {             
            });
               }

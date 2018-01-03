@@ -9,9 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  
+  Hello <b><%= request.getParameter("name") %></b>!
 <div class="container">
-  <h1>Input Group Button</h1>
+
   <form action="/action_page.php">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Search" name="search">

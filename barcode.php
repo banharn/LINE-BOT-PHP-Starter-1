@@ -81,14 +81,14 @@
   firebase.initializeApp(config);
    var dbRef = firebase.database().ref();
 var contactsRef = dbRef.child('Products');
-contactsRef.push({
-    "S_BARCODE_NO": "8851952350161",
-    "S_NAME": "CRYSTAL 600ML.",
-    "S_WEIGHT": "600",
-   "S_SUPPLIER": "เสริมสุข",
-   "S_QUANTITY": "12",
-   "S_CAUSE": "ไม่มี",
-   "S_PO": "ไม่มี"
+var query = contactsRef.orderByChild("S_PRODUCT_ID");
+   var dataSet = [];
+   query.once('value',function(snap) {
+
+    snap.forEach(function(item) {
+    	dataSet.push([item.val().S_BARCODE_NO,item.val().S_PRODUCT_ID,item.val().S_NAME,item.val().S_WEIGHT,item.val().S_SUPPLIER,item.val().S_QUANTITY,item.val().S_CAUSE,item.val().S_PO]);
+    }); 
+    console.log(dataSet);
 });
    
 </script>

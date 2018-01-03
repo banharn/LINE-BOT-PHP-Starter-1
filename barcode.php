@@ -85,14 +85,14 @@ contactsRef.on("child_added", function(snap) {
     			  var key = snap.key;
                if(snap.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value){
                   console.log("pass");
-                  document.getElementById('S_BARCODE_NO').value= item.val().S_BARCODE_NO;
-       document.getElementById('S_PRODUCT_ID').value= item.val().S_PRODUCT_ID;
-       document.getElementById('S_NAME').value= item.val().S_NAME;
-       document.getElementById('S_WEIGHT').value= item.val().S_WEIGHT;
-       document.getElementById('S_SUPPLIER').value= item.val().S_SUPPLIER;
-       document.getElementById('S_QUANTITY').value= item.val().S_QUANTITY;
-       document.getElementById('S_CAUSE').value= item.val().S_CAUSE;
-       document.getElementById('S_PO').value= item.val().S_PO;
+                  document.getElementById('S_BARCODE_NO').value= snap.val().S_BARCODE_NO;
+       document.getElementById('S_PRODUCT_ID').value= snap.val().S_PRODUCT_ID;
+       document.getElementById('S_NAME').value= snap.val().S_NAME;
+       document.getElementById('S_WEIGHT').value= snap.val().S_WEIGHT;
+       document.getElementById('S_SUPPLIER').value= snap.val().S_SUPPLIER;
+       document.getElementById('S_QUANTITY').value= snap.val().S_QUANTITY;
+       document.getElementById('S_CAUSE').value= snap.val().S_CAUSE;
+       document.getElementById('S_PO').value= snap.val().S_PO;
                   }else{
                   console.log("error");
                   }

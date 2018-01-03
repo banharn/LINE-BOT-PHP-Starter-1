@@ -81,13 +81,11 @@
   firebase.initializeApp(config);
    var dbRef = firebase.database().ref();
 var contactsRef = dbRef.child('Products');
-var query = contactsRef.orderByChild("S_PRODUCT_ID");
-   var dataSet = [];
-   query.once('value',function(snap) {
-
-    snap.forEach(function(item) {
-    	dataSet.push([item.val().S_BARCODE_NO,item.val().S_PRODUCT_ID,item.val().S_NAME,item.val().S_WEIGHT,item.val().S_SUPPLIER,item.val().S_QUANTITY,item.val().S_CAUSE,item.val().S_PO]);
-       document.getElementById('S_BARCODE_NO').value= item.val().S_BARCODE_NO;
+contactsRef.on("child_added", function(snap) {
+    			  var key = snap.key;
+               if(snap.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value){
+                  cosole.log("pass");
+                  document.getElementById('S_BARCODE_NO').value= item.val().S_BARCODE_NO;
        document.getElementById('S_PRODUCT_ID').value= item.val().S_PRODUCT_ID;
        document.getElementById('S_NAME').value= item.val().S_NAME;
        document.getElementById('S_WEIGHT').value= item.val().S_WEIGHT;
@@ -95,9 +93,13 @@ var query = contactsRef.orderByChild("S_PRODUCT_ID");
        document.getElementById('S_QUANTITY').value= item.val().S_QUANTITY;
        document.getElementById('S_CAUSE').value= item.val().S_CAUSE;
        document.getElementById('S_PO').value= item.val().S_PO;
-    }); 
-    console.log(dataSet);
-});
+                  }else{
+                  cosole.log("error");
+                  }
+    			 
+    			});
+   
+ 
    
 </script>
       

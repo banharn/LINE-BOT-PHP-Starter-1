@@ -13,6 +13,8 @@
   
 <div class="container">
   <p><?php echo $_GET['email']; ?></p>
+  <p><?php echo $_GET['email']; ?></p>
+  <p><?php echo $_GET['email']; ?></p>
   <form action="/action_page.php">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="" name="search">

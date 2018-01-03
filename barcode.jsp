@@ -1,3 +1,7 @@
+<?php
+if (isset($_GET['email'])) {
+    echo $_GET['email'];
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  Parameter myparam: <%= request.getParameter("name") %>
+
 
   
 <div class="container">

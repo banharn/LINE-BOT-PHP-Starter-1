@@ -132,7 +132,7 @@
            //document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
           //$('#myModal').modal('show');
            $('#myModal').modal('show').on('shown.bs.modal', function() {
-      $("#mess").html("บันทึกสำเร็จ");
+      $("#mess").html("กรุณากรอกรหัสสินค้า");
     });
        }
 

@@ -9,10 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <%
-    String accountId = request.getParameter("accountID");
-  %>
-  console.log(accountId);
+  Parameter myparam: <%= request.getParameter("name") %>
+
+  
 <div class="container">
 
   <form action="/action_page.php">

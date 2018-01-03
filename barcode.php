@@ -118,23 +118,30 @@
                 }
     			});
    
-
-    if(document.getElementById('S_PRODUCT_ID').value != ""){
+$(document).ready(function () {
+      
+    $("#save").click(function(){
+         if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
        //alert("บันทึกสำเร็จ");
        //document.getElementById('mess').innerHTML = "บันทึกสำเร็จ";
+            $("#mess").html("บันทึกสำเร็จ");
            $('#myModal').modal('show').on('shown.bs.modal', function() {
-      $("#mess").html("บันทึกสำเร็จ");
+      
     });
        }else{
        console.log("save failer");
        //alert("กรุณากรอกรหัสสินค้า");
            //document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
           //$('#myModal').modal('show');
+          $("#mess").html("กรุณากรอกรหัสสินค้า");
            $('#myModal').modal('show').on('shown.bs.modal', function() {
-      $("#mess").html("กรุณากรอกรหัสสินค้า");
+      
     });
        }
+    });
+});
+    
 
    
 </script>

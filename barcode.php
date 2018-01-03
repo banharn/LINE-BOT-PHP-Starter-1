@@ -22,7 +22,7 @@
                </div>-->
          <div class="panel panel-success">
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
-            <form id="SendForm" method="post" acion="">
+            <form id="SendForm">
             <div class="panel-body">
                <div class="form-group">
                   <label for="S_BARCODE_NO">Barcode Number :</label>

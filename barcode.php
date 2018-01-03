@@ -21,7 +21,7 @@ if (isset($_GET['email'])) {
   <p>The .input-group-btn class attaches a button next to an input field. This is often used as a search bar:</p>
   <form action="/action_page.php">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="search">
+      <input type="text" class="form-control" placeholder="<?php echo $_GET['email']; ?>" name="search">
       <div class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>

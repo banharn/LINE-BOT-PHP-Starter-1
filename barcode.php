@@ -63,6 +63,12 @@
 </div>
         
 </div>
+  <div class="panel-footer">
+				<button type="button" id="updatedb"
+					class="btn btn-primary btn-sm pull-right">
+					<span class="glyphicon glyphicon-check"></span> เติมสินค้า
+				</button>
+			</div>
   </div>
     </div>
 

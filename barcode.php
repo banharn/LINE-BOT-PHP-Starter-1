@@ -134,8 +134,8 @@
                    $("#mess").html("ส่งข้อมูลสำเร็จ");
                   $('#myModal').modal('show').on('shown.bs.modal', function() {        
            });
-                       }else{
-         
+                       }else if(snap.val().S_BARCODE_NO != document.getElementById('S_BARCODE_NO').value && snap.val().S_PRODUCT_ID != document.getElementById('S_PRODUCT_ID').value){
+          console.log("ADD");
                           var dbRef = firebase.database().ref();
          var contactsRef = dbRef.child('Products');
          contactsRef.push({

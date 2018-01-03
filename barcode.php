@@ -51,7 +51,7 @@
                   <textarea class="form-control" rows="2" id="PO"></textarea>
                </div>
             </div>
-            <div class="panel-footer ">
+            <div class="panel-footer" style="height: 50px;">
                <div class="pull-right">
                   <button type="submit" id="save"
                      class="btn btn-primary btn-sm">

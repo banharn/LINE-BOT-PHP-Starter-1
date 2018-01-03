@@ -57,7 +57,18 @@
                   <textarea class="form-control" rows="2" id="S_PO"  value=""></textarea>
                </div>
             </div>
-            <!-- Modal -->
+        
+            <div class="panel-footer" style="height: 50px;">
+               <div class="pull-right">
+                  <button type="button" id="save"
+                     class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                  <span class="glyphicon glyphicon-ok"></span> บันทึก
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+          <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -77,17 +88,6 @@
       
     </div>
   </div><!-- Modal -->
-            <div class="panel-footer" style="height: 50px;">
-               <div class="pull-right">
-                  <button type="button" id="save"
-                     class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                  <span class="glyphicon glyphicon-ok"></span> บันทึก
-                  </button>
-               </div>
-            </div>
-         </div>
-      </div>
-      
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 <script>
   // Initialize Firebase

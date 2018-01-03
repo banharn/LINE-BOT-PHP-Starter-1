@@ -125,19 +125,29 @@
                   $('#myModal').modal('show').on('shown.bs.modal', function() {             
            });
               }else{
-         var dbRef = firebase.database().ref();
-          var contactsRef = dbRef.child('Products');
-          contactsRef.on("child_added", function(snap) {
-             console.log("count");
-                      if(snap.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value && snap.val().S_PRODUCT_ID == document.getElementById('S_PRODUCT_ID').value){
-                         console.log("update");
-                   $("#headD").html("ALERT!!");
-                   $("#mess").html("ส่งข้อมูลสำเร็จ");
-                  $('#myModal').modal('show').on('shown.bs.modal', function() {        
-           });
-                       }
-           			});
-         
+				  var dbRef = firebase.database().ref();
+var contactsRef = dbRef.child('Products');
+var query = contactsRef.orderByChild("S_BARCODE_NO");
+         query.once('value',function(snap) {
+    snap.forEach(function(item) {
+    	if(item.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value){
+			console.log("update");
+		}else if(item.val().S_BARCODE_NO != document.getElementById('S_BARCODE_NO').value){
+			 var dbRef = firebase.database().ref();
+var contactsRef = dbRef.child('Products');
+contactsRef.push({
+    "S_BARCODE_NO": "8851952350163",
+	"S_PRODUCT_ID": "202",
+    "S_NAME": "CRYSTAL 600ML.",
+    "S_WEIGHT": "600",
+   "S_SUPPLIER": "เสริมสุข",
+   "S_QUANTITY": "12",
+   "S_CAUSE": "ไม่มี",
+   "S_PO": "ไม่มี"
+});
+		}
+    }); 
+});
          }
            });
          });  

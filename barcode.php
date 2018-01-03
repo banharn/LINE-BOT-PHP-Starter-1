@@ -25,15 +25,15 @@
             <div class="panel-body">
                <div class="form-group">
                   <label for="S_BARCODE_NO">Barcode Number :</label>
-                  <input class="form-control" id="S_BARCODE_NO" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
+                  <input class="form-control" id="S_BARCODE_NO" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled required>
                </div>
                <div class="form-group">
                   <label for="S_PRODUCT_ID">รหัสสินค้า :</label>
-                  <input class="form-control" id="S_PRODUCT_ID" type="text"  value="" >
+                  <input class="form-control" id="S_PRODUCT_ID" type="text"  value="" required>
                </div>
                <div class="form-group">
                   <label for="S_NAME">ชื่อสินค้า :</label>
-                  <input class="form-control" id="S_NAME" type="text"   value="" >
+                  <input class="form-control" id="S_NAME" type="text"   value="" required>
                </div>
                <div class="form-group">
                   <label for="S_WEIGHT">น้ำหนัก :</label>

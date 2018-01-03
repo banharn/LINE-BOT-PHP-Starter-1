@@ -1,8 +1,4 @@
-<?php
-if (isset($_GET['email'])) {
-    echo $_GET['email'];
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +12,10 @@ if (isset($_GET['email'])) {
 <body>
   
 <div class="container">
-  <h1>Input Group Button</h1>
-  <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind it as a "help text".</p>
-  <p>The .input-group-btn class attaches a button next to an input field. This is often used as a search bar:</p>
+  <p><?php echo $_GET['email']; ?></p>
   <form action="/action_page.php">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="<?php echo $_GET['email']; ?>" name="search">
+      <input type="text" class="form-control" placeholder="" name="search">
       <div class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>

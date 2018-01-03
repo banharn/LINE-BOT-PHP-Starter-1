@@ -16,7 +16,7 @@
 <div class="form-group">
       <label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
       <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
       </div>
     </div>
 </div>

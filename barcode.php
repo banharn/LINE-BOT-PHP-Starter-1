@@ -122,13 +122,18 @@
     if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
        //alert("บันทึกสำเร็จ");
-       document.getElementById('mess').innerHTML = "บันทึกสำเร็จ";
-          $('#myModal').modal('show');
+       //document.getElementById('mess').innerHTML = "บันทึกสำเร็จ";
+           $('#myModal').modal('show').on('shown.bs.modal', function() {
+      $("#mess").html("บันทึกสำเร็จ");
+    });
        }else{
        console.log("save failer");
        //alert("กรุณากรอกรหัสสินค้า");
-           document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
-          $('#myModal').modal('show');
+           //document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
+          //$('#myModal').modal('show');
+           $('#myModal').modal('show').on('shown.bs.modal', function() {
+      $("#mess").html("บันทึกสำเร็จ");
+    });
        }
 
 });

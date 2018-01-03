@@ -57,11 +57,30 @@
                   <textarea class="form-control" rows="2" id="S_PO"  value=""></textarea>
                </div>
             </div>
-          
+            <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p id="mess">Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div><!-- Modal -->
             <div class="panel-footer" style="height: 50px;">
                <div class="pull-right">
-                  <button type="submit" id="save"
-                     class="btn btn-primary btn-sm">
+                  <button type="button" id="save"
+                     class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
                   <span class="glyphicon glyphicon-ok"></span> บันทึก
                   </button>
                </div>
@@ -102,10 +121,14 @@
  $('#save').click(function () {
     if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
-       alert("บันทึกสำเร็จ");
+       //alert("บันทึกสำเร็จ");
+       document.getElementById('mess').innerHTML = "บันทึกสำเร็จ";
+          $('#myModal').modal('show');
        }else{
        console.log("save failer");
-       alert("กรุณากรอกรหัสสินค้า");
+       //alert("กรุณากรอกรหัสสินค้า");
+           document.getElementById('mess').innerHTML = "กรุณากรอกรหัสสินค้า";
+          $('#myModal').modal('show');
        }
 
 });

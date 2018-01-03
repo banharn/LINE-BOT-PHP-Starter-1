@@ -18,7 +18,7 @@
   
 <div class="container">
 <div class="panel panel-success">
-      <div class="panel-heading" style="font-size:20px;">Store</div>
+      <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
       <div class="panel-body">
         
         <div class="form-group">

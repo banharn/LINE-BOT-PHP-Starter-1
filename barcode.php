@@ -15,11 +15,11 @@
    </head>
    <body>
       <div class="container">
-       <div class="pull-right" style="margin: 10px;">
+      <!-- <div class="pull-right" style="margin: 10px;">
                   <button type="submit" id="add" class="btn btn-primary btn-sm">
                   <span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า
                   </button>
-               </div>
+               </div>-->
          <div class="panel panel-success">
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
             <div class="panel-body">
@@ -67,7 +67,7 @@
          </div>
       </div>
       
-      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -80,26 +80,26 @@
   };
   firebase.initializeApp(config);
    var dbRef = firebase.database().ref();
-var contactsRef = dbRef.child('Products');
-contactsRef.on("child_added", function(snap) {
-    			  var key = snap.key;
+   var contactsRef = dbRef.child('Products');
+   contactsRef.on("child_added", function(snap) {
                if(snap.val().S_BARCODE_NO == document.getElementById('S_BARCODE_NO').value){
                   console.log("pass");
                   document.getElementById('S_BARCODE_NO').value= snap.val().S_BARCODE_NO;
-       document.getElementById('S_PRODUCT_ID').value= snap.val().S_PRODUCT_ID;
-       document.getElementById('S_NAME').value= snap.val().S_NAME;
-       document.getElementById('S_WEIGHT').value= snap.val().S_WEIGHT;
-       document.getElementById('S_SUPPLIER').value= snap.val().S_SUPPLIER;
-       document.getElementById('S_QUANTITY').value= snap.val().S_QUANTITY;
-       document.getElementById('S_CAUSE').value= snap.val().S_CAUSE;
-       document.getElementById('S_PO').value= snap.val().S_PO;
-                  }else{
+                  document.getElementById('S_PRODUCT_ID').value= snap.val().S_PRODUCT_ID;
+                  document.getElementById('S_NAME').value= snap.val().S_NAME;
+                  document.getElementById('S_WEIGHT').value= snap.val().S_WEIGHT;
+                  document.getElementById('S_SUPPLIER').value= snap.val().S_SUPPLIER;
+                  document.getElementById('S_QUANTITY').value= snap.val().S_QUANTITY;
+                  document.getElementById('S_CAUSE').value= snap.val().S_CAUSE;
+                  document.getElementById('S_PO').value= snap.val().S_PO;
+                }else{
                   console.log("error");
-                  }
-    			 
+                }
     			});
    
- 
+ $('#save').click(function () {
+console.log("save");
+});
    
 </script>
       

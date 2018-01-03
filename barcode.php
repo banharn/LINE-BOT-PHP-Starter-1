@@ -22,23 +22,22 @@
       <div class="panel-body">
         
         <div class="form-group">
-      <label for="inputdefault">Default input</label>
+      <label for="inputdefault">Barcode Number :</label>
       <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
     </div>
         
         <div class="form-group">
-  <label for="disabledInput" class="col-sm-2 control-label">รหัสสินค้า :</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" >
-      </div>
+      <label for="inputdefault">รหัสสินค้า :</label>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
     </div>
         
         <div class="form-group">
-  <label for="disabledInput" class="col-sm-2 control-label">ชื่อสินค้า :</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" >
-      </div>
+      <label for="inputdefault">ชื่อสินค้า :</label>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
     </div>
+        
+        
+       
         
         <div class="form-group">
   <label for="disabledInput" class="col-sm-2 control-label">น้ำหนัก :</label>

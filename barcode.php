@@ -18,7 +18,7 @@
   
 <div class="container">
 <div class="panel panel-success">
-      <div class="panel-heading">Store</div>
+      <div class="panel-heading"><label>Store</label></div>
       <div class="panel-body">
   <div class="form-group">
   <label for="disabledInput" class="col-sm-2 control-label">Barcode Number :</label>

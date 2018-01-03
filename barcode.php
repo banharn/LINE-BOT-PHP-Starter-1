@@ -22,6 +22,7 @@
                </div>-->
          <div class="panel panel-success">
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
+            <form id="SendForm" method="post" acion="">
             <div class="panel-body">
                <div class="form-group">
                   <label for="S_BARCODE_NO">Barcode Number :</label>
@@ -56,6 +57,7 @@
                   <textarea class="form-control" rows="2" id="S_PO"  value=""></textarea>
                </div>
             </div>
+          
             <div class="panel-footer" style="height: 50px;">
                <div class="pull-right">
                   <button type="submit" id="save"
@@ -64,6 +66,7 @@
                   </button>
                </div>
             </div>
+                 </form>
          </div>
       </div>
       

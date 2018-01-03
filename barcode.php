@@ -61,7 +61,7 @@
             <div class="panel-footer" style="height: 50px;">
                <div class="pull-right">
                   <button type="button" id="save"
-                     class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                     class="btn btn-primary btn-sm" data-toggle="modal" >
                   <span class="glyphicon glyphicon-ok"></span> บันทึก
                   </button>
                </div>

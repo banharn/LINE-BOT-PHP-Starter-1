@@ -14,7 +14,7 @@
 <div class="container">
 
 <div class="form-group">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
       </div>
     </div>

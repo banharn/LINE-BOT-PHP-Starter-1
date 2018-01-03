@@ -118,7 +118,7 @@
                 }
     			});
    
- $('#save').click(function () {
+
     if(document.getElementById('S_PRODUCT_ID').value != ""){
        console.log("save");
        //alert("บันทึกสำเร็จ");
@@ -136,7 +136,6 @@
     });
        }
 
-});
    
 </script>
       

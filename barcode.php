@@ -17,14 +17,19 @@
 <body>
   
 <div class="container">
-
-<div class="form-group">
+<div class="panel panel-success">
+      <div class="panel-heading">Store</div>
+      <div class="panel-body">
+  <div class="form-group">
   <label for="disabledInput" class="col-sm-2 control-label">Barcode Number :</label>
       <div class="col-sm-10">
         <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
       </div>
     </div>
 </div>
+  </div>
+    </div>
+
 
 </body>
 </html>

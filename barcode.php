@@ -15,6 +15,9 @@
    </head>
    <body>
       <div class="container">
+         <button type="submit" id="save" class="btn btn-primary btn-sm" style="margin: 10px;">
+                  <span class="glyphicon glyphicon-plus"></span> เพิ่มสินค้า
+         </button>
          <div class="panel panel-success">
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
             <div class="panel-body">

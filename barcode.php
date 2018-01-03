@@ -126,6 +126,18 @@
                    $("#mess").html("ส่งข้อมูลสำเร็จ");
                   $('#myModal').modal('show').on('shown.bs.modal', function() {        
            });
+                    var dbRef = firebase.database().ref();
+var contactsRef = dbRef.child('Products');
+contactsRef.push({
+    "S_BARCODE_NO": document.getElementById('S_BARCODE_NO').value,
+   "S_PRODUCT_ID": document.getElementById('S_PRODUCT_ID').value,
+    "S_NAME": document.getElementById('S_NAME').value,
+    "S_WEIGHT": document.getElementById('S_WEIGHT').value,
+   "S_SUPPLIER": document.getElementById('S_SUPPLIER').value,
+   "S_QUANTITY":document.getElementById('S_QUANTITY').value,
+   "S_CAUSE": document.getElementById('S_CAUSE').value,
+   "S_PO": document.getElementById('S_PO').value
+});
               }else if(document.getElementById('S_PRODUCT_ID').value == ""){
               console.log("save failer");
               //alert("กรุณากรอกรหัสสินค้า");

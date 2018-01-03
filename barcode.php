@@ -61,7 +61,7 @@
                <div class="pull-right">
                   <button type="button" id="save"
                      class="btn btn-primary btn-sm" data-toggle="modal" >
-                  <span class="glyphicon glyphicon-ok"></span> บันทึก
+                  <span class="glyphicon glyphicon-ok"></span> ส่งข้อมูล
                   </button>
                </div>
             </div>

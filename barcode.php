@@ -28,38 +28,30 @@
         
         <div class="form-group">
       <label for="inputdefault">รหัสสินค้า :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
     </div>
         
         <div class="form-group">
       <label for="inputdefault">ชื่อสินค้า :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
     </div>
         
-        
+        <div class="form-group">
+      <label for="inputdefault">น้ำหนัก :</label>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+    </div>
        
-        
         <div class="form-group">
-  <label for="disabledInput" class="col-sm-2 control-label">น้ำหนัก :</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" >
-      </div>
+      <label for="inputdefault">ชื่อ Supplier :</label>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
     </div>
         
-        <div class="form-group">
-  <label for="disabledInput" class="col-sm-2 control-label">ชื่อ Supplier :</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" >
-      </div>
+          <div class="form-group">
+      <label for="inputdefault">จำนวน :</label>
+      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
     </div>
-        
-           <div class="form-group">
-  <label for="disabledInput" class="col-sm-2 control-label">จำนวน :</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" >
-      </div>
-    </div>
-        
+                
+      
            <div class="form-group">
   <label for="cause">สาเหตุ :</label>
   <textarea class="form-control" rows="5" id="cause"></textarea>

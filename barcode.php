@@ -26,6 +26,56 @@
         <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
       </div>
     </div>
+        
+        <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">รหัสสินค้า :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+        <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">ชื่อสินค้า :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+        <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">น้ำหนัก :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+        <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">ชื่อ Supplier :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+           <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">จำนวน :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+           <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">สาเหตุ :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
+           <div class="form-group">
+  <label for="disabledInput" class="col-sm-2 control-label">PO :</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" value="<?php echo $_GET['idBarC']; ?>" disabled>
+      </div>
+    </div>
+        
 </div>
   </div>
     </div>

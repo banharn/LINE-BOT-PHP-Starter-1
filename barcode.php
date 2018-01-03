@@ -54,12 +54,12 @@
       
            <div class="form-group">
   <label for="cause">สาเหตุ :</label>
-  <textarea class="form-control" rows="5" id="cause"></textarea>
+  <textarea class="form-control" rows="2" id="cause"></textarea>
 </div>
         
            <div class="form-group">
   <label for="PO">PO :</label>
-  <textarea class="form-control" rows="5" id="PO"></textarea>
+  <textarea class="form-control" rows="2" id="PO"></textarea>
 </div>
         
 </div>

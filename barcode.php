@@ -24,36 +24,36 @@
             <div class="panel-heading" style="font-size:20px;font-weight:700;">Store</div>
             <div class="panel-body">
                <div class="form-group">
-                  <label for="inputdefault">Barcode Number :</label>
-                  <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
+                  <label for="S_BARCODE_NO">Barcode Number :</label>
+                  <input class="form-control" id="S_BARCODE_NO" type="text"  value="<?php echo $_GET['idBarC']; ?>" disabled>
                </div>
                <div class="form-group">
                   <label for="inputdefault">รหัสสินค้า :</label>
                   <input class="form-control" id="inputdefault" type="text"   >
                </div>
                <div class="form-group">
-                  <label for="inputdefault">ชื่อสินค้า :</label>
-                  <input class="form-control" id="inputdefault" type="text"   >
+                  <label for="S_NAME">ชื่อสินค้า :</label>
+                  <input class="form-control" id="S_NAME" type="text"   >
                </div>
                <div class="form-group">
-                  <label for="inputdefault">น้ำหนัก :</label>
-                  <input class="form-control" id="inputdefault" type="text" >
+                  <label for="S_WEIGHT">น้ำหนัก :</label>
+                  <input class="form-control" id="S_WEIGHT" type="text" >
                </div>
                <div class="form-group">
-                  <label for="inputdefault">ชื่อ Supplier :</label>
-                  <input class="form-control" id="inputdefault" type="text"   >
+                  <label for="S_SUPPLIER">ชื่อ Supplier :</label>
+                  <input class="form-control" id="S_SUPPLIER" type="text"   >
                </div>
                <div class="form-group">
-                  <label for="inputdefault">จำนวน :</label>
-                  <input class="form-control" id="inputdefault" type="text"   >
+                  <label for="S_QUANTITY">จำนวน :</label>
+                  <input class="form-control" id="S_QUANTITY" type="text"   >
                </div>
                <div class="form-group">
-                  <label for="cause">สาเหตุ :</label>
-                  <textarea class="form-control" rows="2" id="cause"></textarea>
+                  <label for="S_CAUSE">สาเหตุ :</label>
+                  <textarea class="form-control" rows="2" id="S_CAUSE"></textarea>
                </div>
                <div class="form-group">
-                  <label for="PO">PO :</label>
-                  <textarea class="form-control" rows="2" id="PO"></textarea>
+                  <label for="S_PO">PO :</label>
+                  <textarea class="form-control" rows="2" id="S_PO"></textarea>
                </div>
             </div>
             <div class="panel-footer" style="height: 50px;">
@@ -87,6 +87,14 @@ var query = contactsRef.orderByChild("S_PRODUCT_ID");
 
     snap.forEach(function(item) {
     	dataSet.push([item.val().S_BARCODE_NO,item.val().S_PRODUCT_ID,item.val().S_NAME,item.val().S_WEIGHT,item.val().S_SUPPLIER,item.val().S_QUANTITY,item.val().S_CAUSE,item.val().S_PO]);
+       document.getElementById('S_BARCODE_NO').value= item.val().S_BARCODE_NO;
+       document.getElementById('S_PRODUCT_ID').value= item.val().S_PRODUCT_ID;
+       document.getElementById('S_NAME').value= item.val().S_NAME;
+       document.getElementById('S_WEIGHT').value= item.val().S_WEIGHT;
+       document.getElementById('S_SUPPLIER').value= item.val().S_SUPPLIER;
+       document.getElementById('S_QUANTITY').value= item.val().S_QUANTITY;
+       document.getElementById('S_CAUSE').value= item.val().S_CAUSE;
+       document.getElementById('S_PO').value= item.val().S_PO;
     }); 
     console.log(dataSet);
 });

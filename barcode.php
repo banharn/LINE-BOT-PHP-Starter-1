@@ -13,14 +13,12 @@
   
 <div class="container">
 
-  <form action="/action_page.php">
-    <div class="input-group">
-      <input type="text" value="<?php echo $_GET['idBarC']; ?>" class="form-control" name="search">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+<div class="form-group">
+      <label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
       </div>
     </div>
-  </form>
 </div>
 
 </body>

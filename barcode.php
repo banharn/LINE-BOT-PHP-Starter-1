@@ -101,7 +101,12 @@
     			});
    
  $('#save').click(function () {
-console.log("save");
+    if(document.getElementById('S_PRODUCT_ID').value != null || document.getElementById('S_PRODUCT_ID').value != ""){
+       console.log("save");
+       }else{
+       console.log("save failer");
+       }
+
 });
    
 </script>

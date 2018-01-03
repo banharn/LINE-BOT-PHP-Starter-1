@@ -28,27 +28,27 @@
         
         <div class="form-group">
       <label for="inputdefault">รหัสสินค้า :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+      <input class="form-control" id="inputdefault" type="text"   >
     </div>
         
         <div class="form-group">
       <label for="inputdefault">ชื่อสินค้า :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+      <input class="form-control" id="inputdefault" type="text"   >
     </div>
         
         <div class="form-group">
       <label for="inputdefault">น้ำหนัก :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+      <input class="form-control" id="inputdefault" type="text" >
     </div>
        
         <div class="form-group">
       <label for="inputdefault">ชื่อ Supplier :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+      <input class="form-control" id="inputdefault" type="text"   >
     </div>
         
           <div class="form-group">
       <label for="inputdefault">จำนวน :</label>
-      <input class="form-control" id="inputdefault" type="text"  value="<?php echo $_GET['idBarC']; ?>" >
+      <input class="form-control" id="inputdefault" type="text"   >
     </div>
                 
       

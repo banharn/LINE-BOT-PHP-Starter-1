@@ -1,11 +1,23 @@
 <?php
 
-$url = 'https://ph.godaddy.com/hosting/website-builder.aspx?ci=88060';
-$contents = htmlentities(file_get_contents($url));
- $arrayJson = json_decode($contents, true);
-    
-    $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-echo $arrayJson;
+$url = "http://www.xxx.co/Default.aspx" ;
+$param = "?" . "Field1=" . $num . "&Field2=" . $name;
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => $url. $param,
+    CURLOPT_TIMEOUT => 30
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+    return "error: " . $err;
+} else {
+    return $response;
+}
 
 ?>

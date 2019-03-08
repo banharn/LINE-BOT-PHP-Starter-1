@@ -1,6 +1,6 @@
 <?php
 
-$url = "http://www.xxx.co/Default.aspx" ;
+$url = "http://192.168.0.4:2145/Reprogram/Default.aspx" ;
 $param = "?" . "Field1=" . $num . "&Field2=" . $name;
 
 $curl = curl_init();

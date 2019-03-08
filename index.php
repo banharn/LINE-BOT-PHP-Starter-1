@@ -23,6 +23,11 @@ $resource = "?serial=$message";
         curl_close($ch);  
 
 
+ $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $output;
+        replyMsg($arrayHeader,$arrayPostData);
+
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

@@ -10,11 +10,23 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+
+  $ch = curl_init(); 
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "http://1.179.149.85:2146/register/default2.aspx"); 
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+        // close curl resource to free up system resources 
+        curl_close($ch);  
+
+
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+        $arrayPostData['messages'][0]['text'] = $output;
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"

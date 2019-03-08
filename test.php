@@ -1,13 +1,18 @@
 <?php
 
-    $strUrl = "https://www.google.com/";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-echo $result;
+        // create curl resource 
+        $ch = curl_init(); 
+
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "https://www.google.com/xjs/_/js/k=xjs.ntp.en.GfCY6i1gKJI.O/m=sx,jsa,ntp,d,csi/am=AACwATgaJg/rt=j/d=1/rs=ACT90oEv-t6AAU_J4mQ6N6OCinq8UUadIg"); 
+
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+
+        // close curl resource to free up system resources 
+        curl_close($ch);   
+echo $output;
 ?>

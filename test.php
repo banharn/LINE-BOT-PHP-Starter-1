@@ -4,7 +4,7 @@
         $ch = curl_init(); 
 
         // set url 
-        curl_setopt($ch, CURLOPT_URL, "https://www.google.com/xjs/_/js/k=xjs.ntp.en.GfCY6i1gKJI.O/m=sx,jsa,ntp,d,csi/am=AACwATgaJg/rt=j/d=1/rs=ACT90oEv-t6AAU_J4mQ6N6OCinq8UUadIg"); 
+        curl_setopt($ch, CURLOPT_URL, "http://1.179.149.85:2146/Reprogram/Default.aspx"); 
 
         //return the transfer as a string 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 

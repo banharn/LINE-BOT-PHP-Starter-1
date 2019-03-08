@@ -1,25 +1,13 @@
 <?php
 
-$url = "http://1.179.149.85:2146/Reprogram/Default.aspx" ;
-$param = "?" . "Field1=" . $num . "&Field2=" . $name;
-
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_URL => $url. $param,
-    CURLOPT_TIMEOUT => 30
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-    return "error: " . $err;
-    echo "error: " . $err;
-} else {
-    return $response;
-    echo $response;
-}
-
+    $strUrl = "https://www.google.com/";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+echo $result;
 ?>

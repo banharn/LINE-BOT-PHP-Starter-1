@@ -16,8 +16,10 @@ curl_close($curl);
 
 if ($err) {
     return "error: " . $err;
+    echo "error: " . $err;
 } else {
     return $response;
+    echo $response;
 }
 
 ?>

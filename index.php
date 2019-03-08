@@ -10,10 +10,11 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-
+$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
+$resource = "?serial=$message";
   $ch = curl_init(); 
         // set url 
-        curl_setopt($ch, CURLOPT_URL, "http://1.179.149.85:2146/register/default2.aspx"); 
+        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
         //return the transfer as a string 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         // $output contains the output string 

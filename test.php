@@ -1,6 +1,6 @@
 <?php
 
-$url = "http://1.179.149.85:2146/Reprogram/Default.aspx" ;
+$url = "https://www.google.com/" ;
 $param = "?" . "Field1=" . $num . "&Field2=" . $name;
 
 $curl = curl_init();

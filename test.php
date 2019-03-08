@@ -4,7 +4,7 @@
         $ch = curl_init(); 
 
         // set url 
-        curl_setopt($ch, CURLOPT_URL, "http://1.179.149.85:2146/Reprogram/Default.aspx"); 
+        curl_setopt($ch, CURLOPT_URL, "http://1.179.149.85:2146/register/getserial.asmx/HelloWorld"); 
 
         //return the transfer as a string 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 

@@ -9,18 +9,19 @@
     
     //รับข้อความจากผู้ใช้
 
-$baseUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95";
-  $ch = curl_init(); 
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl"); 
-        //return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-        // close curl resource to free up system resources 
-        curl_close($ch);  
 
-echo $output;
+ $strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+echo $result;
 
    exit;
 ?>

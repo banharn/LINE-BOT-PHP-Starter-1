@@ -11,7 +11,7 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 $id = $arrayJson['events'][0]['source']['userId'];
-$displayName = $arrayJson['events'][0]['source']['userId'];
+$displayName = $arrayJson['events'][0]['source']['displayName'];
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
 $resource = "?serial=$message";
   $ch = curl_init(); 

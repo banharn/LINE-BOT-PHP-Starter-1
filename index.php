@@ -39,7 +39,7 @@ $strUrl = "https://api.line.me/v2/bot/profile/$id";
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$id\n$groupId";
 
 if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

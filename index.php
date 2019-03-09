@@ -37,7 +37,7 @@ $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
 
 
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-$resource = "?serial=$message&name=ooooo";
+$resource = "?serial=$message&name=$displayName";
   $ch = curl_init(); 
         // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 

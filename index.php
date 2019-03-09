@@ -12,9 +12,6 @@
     $message = $arrayJson['events'][0]['message']['text'];
 $id = $arrayJson['events'][0]['source']['userId'];
 $groupId = $arrayJson['events'][0]['source']['groupId'];
-echo $message;
-echo $id;
-echo $groupId;
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
 $resource = "?serial=$message";
   $ch = curl_init(); 
@@ -28,7 +25,9 @@ $resource = "?serial=$message";
         curl_close($ch);  
 
 
-$strUrl = "https://api.line.me/v2/bot/profile/$id";
+//$strUrl = "https://api.line.me/v2/bot/profile/$id";
+$strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -39,7 +38,7 @@ $strUrl = "https://api.line.me/v2/bot/profile/$id";
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$id\n$groupId";
+$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
 
 if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

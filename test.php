@@ -5,6 +5,7 @@
     $arrayJson = json_decode($content, true);
     
     $arrayHeader = array();
+     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้

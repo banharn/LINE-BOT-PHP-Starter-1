@@ -22,5 +22,9 @@
         curl_close ($ch);
         $character = json_decode($result);
         echo $character->displayName;   
+
+ $character1 = $character->displayName + "\n55555555" ; 
+
+echo $character1; 
    exit;
 ?>

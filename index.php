@@ -19,7 +19,7 @@ $groupId = $arrayJson['events'][0]['source']['groupId'];
 
 
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-$resource = "?serial=$message&name=$displayName";
+$resource = "?serial=$message&name=ooooo";
   $ch = curl_init(); 
         // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 

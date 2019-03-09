@@ -38,7 +38,7 @@ $strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95"
 
  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] =$output \n $displayName;
+        $arrayPostData['messages'][0]['text'] =$output $displayName;
         replyMsg($arrayHeader,$arrayPostData);
 
 

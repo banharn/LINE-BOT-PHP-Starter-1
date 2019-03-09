@@ -23,7 +23,7 @@
         $character = json_decode($result);
   
 
- $character1 = $character->displayName. "\r\n" .$character->displayName.; 
+ $character1 = $character->displayName. '\r\n $character->displayName' ; 
 
 echo $character1; 
    exit;

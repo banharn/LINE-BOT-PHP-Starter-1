@@ -20,7 +20,8 @@
         $result = curl_exec($ch);
         curl_close ($ch);
 echo $result;
-        echo $result["displayName"];
+       $character = json_decode($result);
+echo $character->displayName;
        
    exit;
 ?>

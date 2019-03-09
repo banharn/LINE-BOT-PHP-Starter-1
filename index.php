@@ -37,10 +37,13 @@ $strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95"
         $displayName = $character->displayName;  
 $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
 
- $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+if($message != ""){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
+    }
+
 
 
 function replyMsg($arrayHeader,$arrayPostData){

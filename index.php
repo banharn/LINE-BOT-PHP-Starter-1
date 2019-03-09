@@ -35,7 +35,7 @@ $strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95"
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-$output1 = "$output\n $displayName";
+$output1 = "$output\n ชื่อผู้ใช้งาน : $displayName";
 
  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";

@@ -24,7 +24,7 @@ $resource = "?serial=$message";
         curl_close($ch);  
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('VQ1mBEd2QqIIBJwg629MTQCf3uTJjOMgZXp+ZHvBP9Znn07x3HkiMiUk7GCcwhD/R6VI1s2Nhc31rKx6ElxmT26P2Ve2oWqc7KK9dZaDC1coQQxoVlck0Kydnq6UaC0JhBSJa275g99+OxBmaXGdDAdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '5959f81685d08ed63ba53cede92d678d']);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '070f839dfd1f720350258656368bef4f']);
 $response = $bot->getProfile($id);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();

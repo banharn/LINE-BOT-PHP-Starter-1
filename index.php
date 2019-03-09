@@ -10,7 +10,7 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-
+$id = $arrayJson['events'][0]['source']['userId'];
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
 $resource = "?serial=$message";
   $ch = curl_init(); 
@@ -22,6 +22,17 @@ $resource = "?serial=$message";
         $output = curl_exec($ch); 
         // close curl resource to free up system resources 
         curl_close($ch);  
+
+
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('VQ1mBEd2QqIIBJwg629MTQCf3uTJjOMgZXp+ZHvBP9Znn07x3HkiMiUk7GCcwhD/R6VI1s2Nhc31rKx6ElxmT26P2Ve2oWqc7KK9dZaDC1coQQxoVlck0Kydnq6UaC0JhBSJa275g99+OxBmaXGdDAdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '5959f81685d08ed63ba53cede92d678d']);
+$response = $bot->getProfile('$id');
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
 
 
  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

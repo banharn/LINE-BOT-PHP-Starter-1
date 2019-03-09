@@ -20,7 +20,7 @@
         $result = curl_exec($ch);
         curl_close ($ch);
 echo $result;
-        echo $result[2];
+        echo $result["displayName"];
        
    exit;
 ?>

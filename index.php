@@ -47,7 +47,7 @@ $resource = "?serial=$message&name=ooooo";
         $output = curl_exec($ch); 
         // close curl resource to free up system resources 
         curl_close($ch);  
- exit;
+
 $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
 
 if($message != ""){

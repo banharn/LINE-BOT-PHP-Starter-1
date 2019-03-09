@@ -11,6 +11,7 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 $id = $arrayJson['events'][0]['source']['userId'];
+$displayName = $arrayJson['events'][0]['source']['userId'];
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
 $resource = "?serial=$message";
   $ch = curl_init(); 
@@ -25,9 +26,8 @@ $resource = "?serial=$message";
 
 
  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['to'] = $id;
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] =$output;
+        $arrayPostData['messages'][0]['text'] =$displayName;
         replyMsg($arrayHeader,$arrayPostData);
 
 #ตัวอย่าง Message Type "Text"

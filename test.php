@@ -9,7 +9,8 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
-
+$message = $arrayJson;
+echo $message; 
 
  $strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95";
         $ch = curl_init();

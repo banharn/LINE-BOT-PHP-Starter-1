@@ -24,7 +24,7 @@ $resource = "?serial=$message";
         curl_close($ch);  
 
 
-$strUrl = "https://api.line.me/v2/bot/profile/Ub50d949097ea4a3a880d45d26389fb95";
+$strUrl = "https://api.line.me/v2/bot/profile/$id";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);

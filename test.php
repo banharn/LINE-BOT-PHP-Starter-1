@@ -19,9 +19,7 @@
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
-echo $result;
-       $character = json_decode($result);
-echo $character->displayName;
-       
+        $character = json_decode($result);
+        echo $character->displayName;   
    exit;
 ?>

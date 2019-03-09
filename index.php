@@ -18,17 +18,7 @@ $groupId = $arrayJson['events'][0]['source']['groupId'];
 
 
 
-$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-$resource = "?serial=$message&name=ooooo";
-  $ch = curl_init(); 
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
-        //return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-        // close curl resource to free up system resources 
-        curl_close($ch);  
+
 
 //$strUrl = "https://api.line.me/v2/bot/profile/$id";
 $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";

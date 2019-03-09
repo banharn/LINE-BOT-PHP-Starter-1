@@ -21,9 +21,9 @@
         $result = curl_exec($ch);
         curl_close ($ch);
         $character = json_decode($result);
-        echo $character->displayName;   
+  
 
- $character1 = $character->displayName . "\r\n555555556666888" ; 
+ $character1 = $character->displayName. "\r\n" .$character->displayName.; 
 
 echo $character1; 
    exit;

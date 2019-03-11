@@ -10,6 +10,7 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+    $messageID = $arrayJson['events'][0]['message']['id'];
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
@@ -29,19 +30,7 @@
         $str1 = urlencode($displayName);
 
 
-    $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-    $resource = "?serial=$message&name=$str1";
-    $ch = curl_init(); 
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
-        //return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-        // close curl resource to free up system resources 
-        curl_close($ch);  
-
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID";
 
     if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

@@ -3,12 +3,12 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    echo    $arrayJson['events'][0]['message'];
+    
 
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+    echo    $arrayJson['events'][0]['message'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     $messageID = $arrayJson['events'][0]['message']['id'];

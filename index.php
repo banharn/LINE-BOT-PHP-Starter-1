@@ -17,8 +17,8 @@
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
     //$strUrl = "https://api.line.me/v2/bot/profile/$id";
-    $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
-
+   // $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
+$strUrl = "https://api.line.me/v2/bot/message/$messageID/content";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);

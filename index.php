@@ -42,7 +42,7 @@
         // close curl resource to free up system resources 
         curl_close($ch);  
 
-    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messagePIC";
+    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
   	
 
 

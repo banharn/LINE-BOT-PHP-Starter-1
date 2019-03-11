@@ -16,8 +16,8 @@
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
-    //$strUrl = "https://api.line.me/v2/bot/profile/$id";
-    $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
+    	//$strUrl = "https://api.line.me/v2/bot/profile/$id";
+    	$strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -31,58 +31,45 @@
         $displayName = $character->displayName;  
         $str1 = urlencode($displayName);
 
+   	$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
+    	$resource = "?serial=$message&name=$str1";
+    	$ch = curl_init(); 
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+        // close curl resource to free up system resources 
+        curl_close($ch);  
 
-
-  
-
-
-
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID";
-  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+  	
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
-        //replyMsg($arrayHeader,$arrayPostData);
-replyMsgs($arrayHeader,$messageID);
- function replyMsgs($arrayHeader,$messageID){
-$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
-$result = curl_exec($ch);
-curl_close($ch);
+        replyMsg($arrayHeader,$arrayPostData);
+	//replyMsgs($arrayHeader,$messageID);
 
-//画像ファイルの作成  
+    if($message != ""){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $output1;
+        replyMsg($arrayHeader,$arrayPostData);
+    }
 
-	 
-		$file_name = "testftp1.jpg";
+    function replyMsgs($arrayHeader,$messageID){
+	$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+	$file_name = "testftp1.jpg";
         $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
-		$fp = fopen($file_name, 'wb');
-
-fwrite($fp, $result);
-
-fclose($fp);
-
-//そのまま画像をオウム返しで送信  
- $response_format_text = [
- "type" => "image",
- "originalContentUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/testftp1.jpg",
- "previewImageUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/testftp1.jpg"
- ];
-
-$post_data = [
-"replyToken" => $replyToken,
-"messages" => [$response_format_text]
-];
- 
-$ch = curl_init("https://api.line.me/v2/bot/message/reply");
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
-$result = curl_exec($ch);
-curl_close($ch);
-		
-
+	$fp = fopen($file_name, 'wb');
+	fwrite($fp, $result);
+	fclose($fp);
     }
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

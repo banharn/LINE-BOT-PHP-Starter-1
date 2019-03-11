@@ -10,17 +10,18 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     //รับข้อความจากผู้ใช้
 
-$strUrl = "https://api.line.me/v2/bot/message/9493595447603/content";
- $ch = curl_init();
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-echo $result;
+
+ $baseUrl = "https://api.line.me/v2/bot/message/9493595447603/content";
+    $ch = curl_init(); 
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "$baseUrl"); 
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+        // close curl resource to free up system resources 
+        curl_close($ch);  
+echo $output;
 
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

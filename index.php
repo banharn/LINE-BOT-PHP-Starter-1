@@ -16,29 +16,36 @@
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
-
-
-
-    $strUrl1 = "https://api.line.me/v2/bot/message/$messageID/content";
+    //$strUrl = "https://api.line.me/v2/bot/profile/$id";
+    $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl1);
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result1 = curl_exec($ch);
+        $result = curl_exec($ch);
         curl_close ($ch);
-        $character1 = json_decode($result1);
+        $character = json_decode($result);
+        $displayName = $character->displayName;  
+        $str1 = urlencode($displayName);
 
 
 
-    $output1 = "$messageID\n$character1";
+
+
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID";
   $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
-
+    if($message != ""){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $output1;
+        replyMsg($arrayHeader,$arrayPostData);
+    }
 
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

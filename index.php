@@ -44,7 +44,7 @@
         //replyMsg($arrayHeader,$arrayPostData);
 replyMsgs($arrayHeader);
  function replyMsgs($arrayHeader){
-$ch = curl_init("https://api.line.me/v2/bot/message/".$messageID."/content");
+$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
 $result = curl_exec($ch);
@@ -57,20 +57,7 @@ curl_close($ch);
         $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
 		$fp = fopen($file_name, 'wb');
 
-
-if ($fp){
-    if (flock($fp, LOCK_EX)){
-        if (fwrite($fp,  $result ) === FALSE){
-            print('ファイル書き込みに失敗しました<br>');
-        }else{
-            print($data.'をファイルに書き込みました<br>');
-        }
-
-        flock($fp, LOCK_UN);
-    }else{
-        print('ファイルロックに失敗しました<br>');
-    }
-}
+fwrite($fp, $result);
 
 fclose($fp);
 

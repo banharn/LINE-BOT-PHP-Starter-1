@@ -10,7 +10,9 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-$messageID = $arrayJson['events'][0]['message']['text'];
+    $messageID = $arrayJson['events'][0]['message']['id'];
+    $messagePIC = $arrayJson['events'][0]['message']['contentProvider']['originalContentUrl'];
+    $messagePIC1 = $arrayJson['events'][0]['message']['originalContentUrl'];
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
@@ -30,27 +32,36 @@ $messageID = $arrayJson['events'][0]['message']['text'];
         $str1 = urlencode($displayName);
 
 
-    $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-    $resource = "?serial=$message&name=$str1";
-    $ch = curl_init(); 
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
-        //return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-        // close curl resource to free up system resources 
-        curl_close($ch);  
 
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+  
 
-    if($message != ""){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+
+
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID";
+  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
-    }
+replyMsgs($arrayHeader);
+ function replyMsgs($arrayHeader){
 
+	
+
+		$url = 'https://api.line.me/v2/bot/message/'.$messageID.'/content';
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
+		
+		$json_content = curl_exec($ch);
+		curl_close($ch);
+		
+
+		$file_name = "$messageID.jpeg";
+        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
+		$fp = fopen($file_name, 'w');
+		fwrite($fp, $json_content);
+		fclose($fp);
+    }
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();

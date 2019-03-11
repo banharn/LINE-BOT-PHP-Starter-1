@@ -44,17 +44,15 @@
 
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messagePIC";
   	
-	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $output1;
-        replyMsg($arrayHeader,$arrayPostData);
-	//replyMsgs($arrayHeader,$messageID);
 
-    if($message != ""){
+
+    if($messagePIC == "text"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
+    } else if($messagePIC == "image"){
+	replyMsgs($arrayHeader,$messageID);
     }
 
     function replyMsgs($arrayHeader,$messageID){
@@ -64,8 +62,8 @@
 	$result = curl_exec($ch);
 	curl_close($ch);
 
-	$file_name = "testftp1.jpg";
-        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
+	$file_name = "$messageID.jpg";
+        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/reg/$file_name";
 	$fp = fopen($file_name, 'wb');
 	fwrite($fp, $result);
 	fclose($fp);

@@ -33,11 +33,11 @@ $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-
+$str1 = urlencode($displayName);
 
 
 $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-$resource = "?serial=$message&name=urlencode($displayName)";
+$resource = "?serial=$message&name=$str1";
   $ch = curl_init(); 
         // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 

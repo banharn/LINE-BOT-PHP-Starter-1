@@ -8,11 +8,8 @@
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    echo    $arrayJson['events'][0]['message'];
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
- echo  $message;
-echo "555555";
     $messageID = $arrayJson['events'][0]['message']['id'];
     $messagePIC = $arrayJson['events'][0]['message']['contentProvider']['originalContentUrl'];
     $messagePIC1 = $arrayJson['events'][0]['message']['originalContentUrl'];
@@ -32,12 +29,8 @@ $strUrl = "https://api.line.me/v2/bot/message/9493595447603/content";
         $character = json_decode($result);
         $displayName = $character->displayName;  
         $str1 = urlencode($displayName);
-
-    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $str1;
-        replyMsg($arrayHeader,$arrayPostData);
-
+$messageID = $character['events'][0]['message']['id'];
+ echo $messageID;
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();

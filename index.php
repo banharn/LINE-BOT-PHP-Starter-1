@@ -32,7 +32,22 @@
         $str1 = urlencode($displayName);
 
 
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID\n$messagePIC\n$messagePIC1";
+
+    $strUrl1 = "https://api.line.me/v2/bot/message/$messageID/content";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl1);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result1 = curl_exec($ch);
+        curl_close ($ch);
+        $character1 = json_decode($result1);
+
+
+
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID\n$character1";
   $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;

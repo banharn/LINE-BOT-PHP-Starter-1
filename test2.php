@@ -1,7 +1,7 @@
 <?php
 $file_name = "data.txt";
-        $fileURL = 'http://1.179.149.85:2146/register/Images/test.txt';
-		$fp = fopen($fileURL, 'w');
+        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
+		$fp = fopen($file_name, 'w');
 		fwrite($fp, "dddddd");
 		fclose($fp);		
 ?>

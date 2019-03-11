@@ -3,7 +3,8 @@
     
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
-    
+    echo    $arrayJson;
+
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
@@ -29,8 +30,7 @@ $strUrl = "https://api.line.me/v2/bot/message/9493595447603/content";
         $character = json_decode($result);
         $displayName = $character->displayName;  
         $str1 = urlencode($displayName);
-echo    $strUrl;
-echo $character;
+
 
 
     function replyMsg($arrayHeader,$arrayPostData){

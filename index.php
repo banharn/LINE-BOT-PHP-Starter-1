@@ -11,7 +11,8 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     $messageID = $arrayJson['events'][0]['message']['id'];
-    $messagePIC = $arrayJson['events'][0]['message']['contentProvider'];
+    $messagePIC = $arrayJson['events'][0]['message']['contentProvider']['originalContentUrl'];
+    $messagePIC1 = $arrayJson['events'][0]['message']['originalContentUrl'];
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
@@ -31,7 +32,7 @@
         $str1 = urlencode($displayName);
 
 
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID\n$messagePIC";
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID\n$messagePIC\n$messagePIC1";
   $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;

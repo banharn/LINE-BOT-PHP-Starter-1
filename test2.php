@@ -33,7 +33,10 @@ $strUrl = "https://api.line.me/v2/bot/message/9493595447603/content";
         $displayName = $character->displayName;  
         $str1 = urlencode($displayName);
 
-
+    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $str1;
+        replyMsg($arrayHeader,$arrayPostData);
 
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

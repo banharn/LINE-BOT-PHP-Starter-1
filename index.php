@@ -42,8 +42,8 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         //replyMsg($arrayHeader,$arrayPostData);
-replyMsgs($arrayHeader);
- function replyMsgs($arrayHeader){
+replyMsgs($arrayHeader,$messageID);
+ function replyMsgs($arrayHeader,$messageID){
 $ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 

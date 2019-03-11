@@ -56,7 +56,7 @@ replyMsgs($arrayHeader);
 		curl_close($ch);
 		
 
-		$file_name = "$messageID.jpeg";
+		$file_name = "testftp.jpeg";
         $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
 		$fp = fopen($file_name, 'w');
 		fwrite($fp, $json_content);

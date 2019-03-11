@@ -41,26 +41,61 @@
   $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
-        replyMsg($arrayHeader,$arrayPostData);
+        //replyMsg($arrayHeader,$arrayPostData);
 replyMsgs($arrayHeader);
  function replyMsgs($arrayHeader){
+$ch = curl_init("https://api.line.me/v2/bot/message/".$messageID."/content");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
+$result = curl_exec($ch);
+curl_close($ch);
 
-	
+//画像ファイルの作成  
 
-		$url = 'https://api.line.me/v2/bot/message/'.$messageID.'/content';
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
-		
-		$json_content = curl_exec($ch);
-		curl_close($ch);
-		
-
+	 
 		$file_name = "testftp1.jpg";
         $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/$file_name";
-		$fp = fopen($file_name, 'w');
-		fwrite($fp, $json_content);
-		fclose($fp);
+		$fp = fopen($file_name, 'wb');
+
+
+if ($fp){
+    if (flock($fp, LOCK_EX)){
+        if (fwrite($fp,  $result ) === FALSE){
+            print('ファイル書き込みに失敗しました<br>');
+        }else{
+            print($data.'をファイルに書き込みました<br>');
+        }
+
+        flock($fp, LOCK_UN);
+    }else{
+        print('ファイルロックに失敗しました<br>');
+    }
+}
+
+fclose($fp);
+
+//そのまま画像をオウム返しで送信  
+ $response_format_text = [
+ "type" => "image",
+ "originalContentUrl" => "【画像ファイルのパス】/img/test.jpg",
+ "previewImageUrl" => "【画像ファイルのパス】/img/test.jpg"
+ ];
+
+$post_data = [
+"replyToken" => $replyToken,
+"messages" => [$response_format_text]
+];
+ 
+$ch = curl_init("https://api.line.me/v2/bot/message/reply");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
+curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
+$result = curl_exec($ch);
+curl_close($ch);
+		
+
     }
     function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

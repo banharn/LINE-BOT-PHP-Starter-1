@@ -48,7 +48,7 @@ $resource = "?serial=$message&name=$str1";
         // close curl resource to free up system resources 
         curl_close($ch);  
 
-$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$str1\n$id";
 
 if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];

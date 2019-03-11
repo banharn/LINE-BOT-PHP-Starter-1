@@ -77,8 +77,8 @@ fclose($fp);
 //そのまま画像をオウム返しで送信  
  $response_format_text = [
  "type" => "image",
- "originalContentUrl" => "【画像ファイルのパス】/img/test.jpg",
- "previewImageUrl" => "【画像ファイルのパス】/img/test.jpg"
+ "originalContentUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/testftp1.jpg",
+ "previewImageUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/img/testftp1.jpg"
  ];
 
 $post_data = [

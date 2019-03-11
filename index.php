@@ -10,18 +10,11 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-$id = $arrayJson['events'][0]['source']['userId'];
-$groupId = $arrayJson['events'][0]['source']['groupId'];
+    $id = $arrayJson['events'][0]['source']['userId'];
+    $groupId = $arrayJson['events'][0]['source']['groupId'];
 
-
-
-
-
-
-
-
-//$strUrl = "https://api.line.me/v2/bot/profile/$id";
-$strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
+    //$strUrl = "https://api.line.me/v2/bot/profile/$id";
+    $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -33,12 +26,12 @@ $strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-$str1 = urlencode($displayName);
+        $str1 = urlencode($displayName);
 
 
-$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-$resource = "?serial=$message&name=$str1";
-  $ch = curl_init(); 
+    $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
+    $resource = "?serial=$message&name=$str1";
+    $ch = curl_init(); 
         // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
         //return the transfer as a string 
@@ -48,18 +41,16 @@ $resource = "?serial=$message&name=$str1";
         // close curl resource to free up system resources 
         curl_close($ch);  
 
-$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$str1\n$id";
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
 
-if($message != ""){
+    if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-
-
-function replyMsg($arrayHeader,$arrayPostData){
+    function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);

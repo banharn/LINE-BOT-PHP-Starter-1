@@ -16,6 +16,7 @@
         // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl"); 
         //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         // $output contains the output string 
         $output = curl_exec($ch); 

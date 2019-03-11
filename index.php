@@ -65,7 +65,7 @@ fclose($fp);
  $response_format_text = [
  "type" => "image",
  "originalContentUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/testftp1.jpg",
- "previewImageUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/img/testftp1.jpg"
+ "previewImageUrl" => "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/testftp1.jpg"
  ];
 
 $post_data = [

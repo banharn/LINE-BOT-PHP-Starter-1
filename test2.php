@@ -1,6 +1,6 @@
 <?php
-        $fileURL = 'http://1.179.149.85:2146/register/Images/'.$objID.'.'.$filenameExtension;
+        $fileURL = 'http://1.179.149.85:2146/register/Images/test.txt;
 		$fp = fopen($fileURL, 'w');
-		fwrite($fp, $json_content);
+		fwrite($fp, "dddddd");
 		fclose($fp);		
 ?>

@@ -12,6 +12,7 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
  echo  $message;
+echo "555555";
     $messageID = $arrayJson['events'][0]['message']['id'];
     $messagePIC = $arrayJson['events'][0]['message']['contentProvider']['originalContentUrl'];
     $messagePIC1 = $arrayJson['events'][0]['message']['originalContentUrl'];

@@ -10,9 +10,7 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
-    $messageID = $arrayJson['events'][0]['message']['id'];
-    $messagePIC = $arrayJson['events'][0]['message']['contentProvider']['originalContentUrl'];
-    $messagePIC1 = $arrayJson['events'][0]['message']['originalContentUrl'];
+$messageID = $arrayJson['events'][0]['message']['text'];
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
 
@@ -32,26 +30,20 @@
         $str1 = urlencode($displayName);
 
 
+    $baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
+    $resource = "?serial=$message&name=$str1";
+    $ch = curl_init(); 
+        // set url 
+        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
+        //return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+        // close curl resource to free up system resources 
+        curl_close($ch);  
 
-    $strUrl1 = "https://api.line.me/v2/bot/message/$messageID/content";
+    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl1);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result1 = curl_exec($ch);
-        curl_close ($ch);
-        $character1 = json_decode($result1);
-
-
-
-    $output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n$messageID\n$character1";
-  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $output1;
-        replyMsg($arrayHeader,$arrayPostData);
     if($message != ""){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";

@@ -47,10 +47,19 @@
 
 
     if($messagePIC == "text"){
+	    if(is_numeric ($message))
+{
+// true		    
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
+}
+else
+{
+// false
+}
+
     } else if($messagePIC == "image"){
 	replyMsgs($arrayHeader,$messageID);
     }

@@ -63,5 +63,5 @@
 }';
 
 $character = json_decode($data);
-echo $character->type;
+echo $character;
 ?>

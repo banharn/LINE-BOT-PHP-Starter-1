@@ -17,7 +17,6 @@
 
     	//$strUrl = "https://api.line.me/v2/bot/profile/$id";
     	$strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -29,41 +28,27 @@
         $character = json_decode($result);
         $displayName = $character->displayName;  
         $str1 = urlencode($displayName);
-
    	$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
     	$resource = "?serial=$message&name=$str1";
     	$ch = curl_init(); 
-        // set url 
         curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
-        //return the transfer as a string 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        // $output contains the output string 
         $output = curl_exec($ch); 
-        // close curl resource to free up system resources 
         curl_close($ch);  
-
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
-  	
-
-
     if($messagePIC == "text"){
-	    if(is_numeric ($message))
-{
-// true		    
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	if(is_numeric ($message))
+	{
+       	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $output1;
         replyMsg($arrayHeader,$arrayPostData);
-}
-else
-{
-// false
-}
-
+	}
+	else
+	{}
     } else if($messagePIC == "image"){
 	replyMsgs($arrayHeader,$messageID);
     }
-
     function replyMsgs($arrayHeader,$messageID){
 	$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

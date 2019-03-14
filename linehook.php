@@ -38,11 +38,11 @@
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-       //	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-       // $arrayPostData['messages'][0]['type'] = "text";
-        //$arrayPostData['messages'][0]['text'] = $output1;
+       	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $output1;
 	
-        replyMsg($arrayHeader,$messageID);
+        replyMsg($arrayHeader,$arrayPostData);
 	}
 	else
 	{}

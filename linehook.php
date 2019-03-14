@@ -41,7 +41,7 @@
        //	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        // $arrayPostData['messages'][0]['type'] = "text";
         //$arrayPostData['messages'][0]['text'] = $output1;
-	$arrayPostData = '{
+	$arrayPostData = "{
   "type": "bubble",
   "styles": {
     "footer": {
@@ -102,7 +102,7 @@
       }
     ]
   }
-}';	
+}";	
         replyMsg($arrayHeader,$arrayPostData);
 	}
 	else

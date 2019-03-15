@@ -37,8 +37,6 @@
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 
 $test = {
-    "to": "C7317fb64845b1e89c63c4fb86bafb268",
-    "messages":[{
        "type": "flex",
     "altText": "Register Program SK V.9",
     "contents": 
@@ -105,13 +103,13 @@ $test = {
     ]
   }
 }
-    }
-    ]
-};
+    };
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-          pushMsg($arrayHeader,$test);
+           $arrayPostData['to'] = $groupId;
+          $arrayPostData['messages'][0]= $test;
+          pushMsg($arrayHeader,$arrayPostData);
         //replyMsg($arrayHeader,$arrayPostData);
 	}
 	else

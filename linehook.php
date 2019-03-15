@@ -36,7 +36,14 @@
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 
-$test = '{
+$test = {
+    "to": "C7317fb64845b1e89c63c4fb86bafb268",
+    "messages":[{
+       "type": "flex",
+    "altText": "Register Program SK V.9",
+    "contents": 
+    
+    {
   "type": "bubble",
   "styles": {
     "footer": {
@@ -97,15 +104,14 @@ $test = '{
       }
     ]
   }
-}';
+}
+    }
+    ]
+};
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-       	 $arrayPostData['to'] = $groupId;
-          $arrayPostData['messages'][0]['type'] = "flex";
-	  $arrayPostData['messages'][0]['altText'] = "Register Program SK V.9";		
-          $arrayPostData['messages'][0]['contents'] = $test;
-          pushMsg($arrayHeader,$arrayPostData);
+          pushMsg($arrayHeader,$test);
         //replyMsg($arrayHeader,$arrayPostData);
 	}
 	else

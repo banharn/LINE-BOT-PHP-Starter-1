@@ -1,6 +1,6 @@
 <?php
     $accessToken = "VQ1mBEd2QqIIBJwg629MTQCf3uTJjOMgZXp+ZHvBP9Znn07x3HkiMiUk7GCcwhD/R6VI1s2Nhc31rKx6ElxmT26P2Ve2oWqc7KK9dZaDC1coQQxoVlck0Kydnq6UaC0JhBSJa275g99+OxBmaXGdDAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
+   
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     
@@ -14,7 +14,6 @@
     $messagePIC =  $arrayJson['events'][0]['message']['type'];
     $id = $arrayJson['events'][0]['source']['userId'];
     $groupId = $arrayJson['events'][0]['source']['groupId'];
-
     	//$strUrl = "https://api.line.me/v2/bot/profile/$id";
     	$strUrl = "https://api.line.me/v2/bot/group/$groupId/member/$id";
         $ch = curl_init();
@@ -35,27 +34,111 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         $output = curl_exec($ch); 
         curl_close($ch);  
-    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output";
+    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
+$json = '{
+    "to": "'.$groupId.'",
+    "messages":[{
+       "type": "flex",
+    "altText": "Register Program SK v.9",
+    "contents": 
+    
+    {
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Register Program SK v.9",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "'.$displayName.'",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "รหัสลงทะเบียน",
+                "weight": "bold",
+                "size": "sm",
+                "color": "#555555",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "'.$output.'",
+                "weight": "bold",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+    }
+    ]
+}';
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-       	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $output1;
-        replyMsg($arrayHeader,$arrayPostData);
+           //$arrayPostData['to'] = $groupId;
+          //$arrayPostData['messages'][0]= $test;
+          pushMsg($arrayHeader,$json);
+        //replyMsg($arrayHeader,$arrayPostData);
 	}
 	else
 	{}
     } else if($messagePIC == "image"){
 	replyMsgs($arrayHeader,$messageID);
     }
+function pushMsg($arrayHeader,$json){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
     function replyMsgs($arrayHeader,$messageID){
 	$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader); 
 	$result = curl_exec($ch);
 	curl_close($ch);
-
 	$file_name = "$messageID.jpg";
         $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/reg/$file_name";
 	$fp = fopen($file_name, 'wb');

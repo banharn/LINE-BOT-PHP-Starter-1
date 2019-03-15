@@ -35,14 +35,85 @@
         $output = curl_exec($ch); 
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
-
+$json = '{
+    "to": "C7317fb64845b1e89c63c4fb86bafb268",
+    "messages":[{
+       "type": "flex",
+    "altText": "Register Program SK V.9",
+    "contents": 
+    
+    {
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Register Program SK v.9",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "SK ให้บริการ24ชม.คับ",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "รหัสลงทะเบียน",
+                "weight": "bold",
+                "size": "sm",
+                "color": "#555555",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "01888817",
+                "weight": "bold",
+                "size": "sm",
+                "color": "#111111",
+                "align": "end"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+    }
+    ]
+}';
 
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-           $arrayPostData['to'] = $groupId;
-          $arrayPostData['messages'][0]= $test;
-          pushMsg($arrayHeader,$arrayPostData);
+           //$arrayPostData['to'] = $groupId;
+          //$arrayPostData['messages'][0]= $test;
+          pushMsg($arrayHeader,$json);
         //replyMsg($arrayHeader,$arrayPostData);
 	}
 	else
@@ -50,14 +121,14 @@
     } else if($messagePIC == "image"){
 	replyMsgs($arrayHeader,$messageID);
     }
-function pushMsg($arrayHeader,$arrayPostData){
+function pushMsg($arrayHeader,$json){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$strUrl);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       $result = curl_exec($ch);

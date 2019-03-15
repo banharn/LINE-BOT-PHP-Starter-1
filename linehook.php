@@ -39,7 +39,7 @@ $json = '{
     "to": "C7317fb64845b1e89c63c4fb86bafb268",
     "messages":[{
        "type": "flex",
-    "altText": "Register Program SK V.92",
+    "altText": "$groupId",
     "contents": 
     
     {

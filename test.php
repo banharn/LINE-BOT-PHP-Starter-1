@@ -62,6 +62,5 @@
   }
 }';
 
-$character = json_decode($data);
-echo $character;
+echo $data;
 ?>

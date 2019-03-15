@@ -36,10 +36,10 @@
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 $json = '{
-    "to": "C7317fb64845b1e89c63c4fb86bafb268",
+    "to": "'.$groupId.'",
     "messages":[{
        "type": "flex",
-    "altText": "'.$groupId.'",
+    "altText": "Register Program SK v.9",
     "contents": 
     
     {
@@ -62,7 +62,7 @@ $json = '{
       },
       {
         "type": "text",
-        "text": "SK ให้บริการ24ชม.คับ",
+        "text": "'.$displayName.'",
         "weight": "bold",
         "size": "xl",
         "margin": "md"
@@ -91,7 +91,7 @@ $json = '{
               },
               {
                 "type": "text",
-                "text": "01888817",
+                "text": "'.$output.'",
                 "weight": "bold",
                 "size": "sm",
                 "color": "#111111",

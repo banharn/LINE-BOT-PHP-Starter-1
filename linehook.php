@@ -36,7 +36,7 @@
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 
-$test = [{
+$test = {
   "type": "bubble",
   "styles": {
     "footer": {
@@ -97,21 +97,35 @@ $test = [{
       }
     ]
   }
-}];
+};
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-       	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['text'] = $test;
-	
-        replyMsg($arrayHeader,$arrayPostData);
+       	 $arrayPostData['to'] = $groupId;
+          $arrayPostData['messages'][0]['type'] = "flex";
+	  $arrayPostData['messages'][0]['altText'] = "Register Program SK V.9";		
+          $arrayPostData['messages'][0]['contents'] = $test;
+          pushMsg($arrayHeader,$arrayPostData);
+        //replyMsg($arrayHeader,$arrayPostData);
 	}
 	else
 	{}
     } else if($messagePIC == "image"){
 	replyMsgs($arrayHeader,$messageID);
     }
+function pushMsg($arrayHeader,$arrayPostData){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
     function replyMsgs($arrayHeader,$messageID){
 	$ch = curl_init("https://api.line.me/v2/bot/message/$messageID/content");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

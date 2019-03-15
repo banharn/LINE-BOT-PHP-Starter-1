@@ -36,7 +36,7 @@
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 
-$test = {
+$test = '{
   "type": "bubble",
   "styles": {
     "footer": {
@@ -97,7 +97,7 @@ $test = {
       }
     ]
   }
-};
+}';
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{

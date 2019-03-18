@@ -11,4 +11,9 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
 echo $arrayJson;
 $arr = json_decode($output, true);
 echo $arr["id"]."<br/>";
+
+$age = '{"Poll":55,"Devid":40,"Akbar":68,"Cally":70}';
+$arr = json_decode($age, true);
+echo $arr["Poll"]."<br/>";
 ?>
+

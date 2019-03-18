@@ -5,8 +5,9 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
         curl_setopt($ch, CURLOPT_URL, "$baseUrl"); 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         $output = curl_exec($ch);
+        $arr2 = "'.$output.'";
         $arr1 = json_decode($output, true);
-        $arr2 = '.$arr1.';
+        
         curl_close($ch);  
 
 echo $arr2;

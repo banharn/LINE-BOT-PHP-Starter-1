@@ -6,7 +6,7 @@ $arrayJson = json_decode($content, true);
 echo $arrayJson['results'][0][id];
 foreach($arrayJson as $key=>$value)
 {
-    echo $key . "=>" . $value . "<br>";
+    echo $key . "=>" . $value[0][id] . "<br>";
 }
 ?>
 

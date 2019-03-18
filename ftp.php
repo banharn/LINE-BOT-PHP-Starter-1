@@ -1,19 +1,58 @@
-<?php
- // FTP server details
-$ftpHost   = 'ftp.meengineer.co.th';
-$ftpUsername = 'meengineer';
-$ftpPassword = OC7IuVdsGP
+<?php 
 
-// open an FTP connection
-$connId = ftp_connect($ftpHost) or die("Couldn't connect to $ftpHost");
+$con=ftp_connect("ftp.mysite.com"); 
 
-// try to login
-if(@ftp_login($connId, $ftpUsername, $ftpPassword)){
-    echo "Connected as $ftpUsername@$ftpHost";
-}else{
-    echo "Couldn't connect as $ftpUsername";
-}
+if($con) 
+{ 
+    echo"connected"; 
+} 
+else 
+{ 
+    echo "disconnectd"; 
+} 
+                 
+$con_login=ftp_login($con,"username","password");     
 
-// close the connection
-ftp_close($connId);
+if($con_login) 
+{ 
+    echo "login"; 
+} 
+
+else 
+{ 
+    echo"not login"; 
+
+} 
+
+
+$contents=ftp_nlist($con,"public_html/foldername");  //working  
+print_r($contents); 
+
+
+
+$ret=ftp_nb_get($con,"c:\image.jpg","public_html/foldername/image.jpg",FTP_BINARY); //working 
+
+while ($ret == FTP_MOREDATA) 
+{ 
+   
+   // Do whatever you want 
+   echo "."; 
+
+   // Continue downloading... 
+   $ret = ftp_nb_continue($con); 
+} 
+
+if ($ret != FTP_FINISHED) 
+{ 
+   echo "There was an error downloading the file..."; 
+   exit(1); 
+} 
+
+if ($ret == FTP_FINISHED) 
+{ 
+    echo "downloaded"; 
+} 
+
+ftp_close($con); 
+
 ?>

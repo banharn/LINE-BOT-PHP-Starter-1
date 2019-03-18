@@ -9,7 +9,7 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
         
         curl_close($ch);  
 
-echo $output->results;
+echo $arr1->results;
 
 
 $age = '{"Poll":55,"Devid":40,"Akbar":68,"Cally":70}';

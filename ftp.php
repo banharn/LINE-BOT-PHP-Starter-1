@@ -5,7 +5,7 @@ $arrayJson = json_decode($content, true);
 
 //echo $arrayJson['results'][0][id];
 foreach ($arrayJson as $character) {
-	echo $character['results'][0][id] . "\n";
+	echo $character[0][id] . "\n";
 }
 ?>
 

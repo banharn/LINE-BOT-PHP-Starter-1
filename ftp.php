@@ -1,7 +1,7 @@
 <?php
                 // define some variables
         $folder_path = "domains/meengineer.co.th/public_html/images/reg/";
-        $local_file = "E://FTP";
+        $local_file = "E:/FTP";
         $server_file = "domains/meengineer.co.th/public_html/images/reg/";
 
         //-- Connection Settings

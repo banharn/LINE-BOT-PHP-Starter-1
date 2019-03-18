@@ -10,4 +10,5 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
          
 echo $arrayJson;
 
+echo $arrayJson->value;
 ?>

@@ -13,6 +13,6 @@ echo $output;
 $age = '{"Poll":55,"Devid":40,"Akbar":68,"Cally":70}';
 $arr = json_decode($age, true);
 echo $arr["Poll"]."<br/>";
-echo $arr->.Poll"<br/>";
+echo $arr->Poll."<br/>";
 ?>
 

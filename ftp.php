@@ -1,6 +1,6 @@
 <?php 
 
-$con=ftp_connect("ftp.mysite.com"); 
+$con=ftp_connect("ftp.meengineer.co.th"); 
 
 if($con) 
 { 
@@ -11,7 +11,7 @@ else
     echo "disconnectd"; 
 } 
                  
-$con_login=ftp_login($con,"username","password");     
+$con_login=ftp_login($con,"meengineer","OC7IuVdsGP");     
 
 if($con_login) 
 { 

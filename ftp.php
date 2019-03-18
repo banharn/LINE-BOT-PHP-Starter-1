@@ -9,6 +9,6 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
         curl_close($ch);  
          
 echo $arrayJson;
-$arr = json_decode($arrayJson, true);
+$arr = json_decode($output, true);
 echo $arr["id"]."<br/>";
 ?>

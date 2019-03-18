@@ -7,4 +7,6 @@ $baseUrl = "http://1.179.149.85:2146/services/service1.aspx";
         $output = curl_exec($ch); 
         curl_close($ch);  
     echo $output;
+$character = json_decode($output);
+echo $character;
 ?>

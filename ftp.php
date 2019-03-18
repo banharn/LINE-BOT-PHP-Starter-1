@@ -4,8 +4,9 @@ $content = file_get_contents('http://1.179.149.85:2146/services/service1.aspx');
 $arrayJson = json_decode($content, true);
 
 echo $arrayJson['results'][0][id];
-foreach ($arrayJson as $emp) {
-  echo $emp['results'][0][id]."<br/>";
+foreach($arrayJson as $key=>$value)
+{
+    echo $key . "=>" . $value . "<br>";
 }
 ?>
 

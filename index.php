@@ -140,7 +140,7 @@ function pushMsg($arrayHeader,$json){
 	$result = curl_exec($ch);
 	curl_close($ch);
 	$file_name = "$messageID.jpg";
-        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/reg/$file_name";
+        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/picREG/$file_name";
 	$fp = fopen($file_name, 'wb');
 	fwrite($fp, $result);
 	fclose($fp);

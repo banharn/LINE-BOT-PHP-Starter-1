@@ -36,7 +36,7 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         $output = curl_exec($ch); 
         curl_close($ch);  
-    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
+    	//$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
 $code = '100041';
         $bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
         $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');

@@ -1,6 +1,7 @@
 <?php
-    $accessToken = "PrQc2WdnEfQoVt6uxoYpOgWwKRFSQCfUTwV0ThQqf3wPiP6RTGXJxlYYfU2os6ZiCZOSKCSQGU4QkiJ0dZGfZacO4QZYWuvt7ZkwOI5di7fJeYyaeNcItumhmaujEXROkSHQQlX3n+CEIIEhnX2wsAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
+  //$accessToken = "VQ1mBEd2QqIIBJwg629MTQCf3uTJjOMgZXp+ZHvBP9Znn07x3HkiMiUk7GCcwhD/R6VI1s2Nhc31rKx6ElxmT26P2Ve2oWqc7KK9dZaDC1coQQxoVlck0Kydnq6UaC0JhBSJa275g99+OxBmaXGdDAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
+   
+     $accessToken = "PrQc2WdnEfQoVt6uxoYpOgWwKRFSQCfUTwV0ThQqf3wPiP6RTGXJxlYYfU2os6ZiCZOSKCSQGU4QkiJ0dZGfZacO4QZYWuvt7ZkwOI5di7fJeYyaeNcItumhmaujEXROkSHQQlX3n+CEIIEhnX2wsAdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     
@@ -9,6 +10,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
+	$rtoken = $arrayJson['events'][0]['replyToken'];
     $message = $arrayJson['events'][0]['message']['text'];
     $messageID = $arrayJson['events'][0]['message']['id'];
     $messagePIC =  $arrayJson['events'][0]['message']['type'];
@@ -35,8 +37,11 @@
         $output = curl_exec($ch); 
         curl_close($ch);  
     	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
+$code = '100041';
+        $bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
+        $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');
 $json = '{
-    "to": "'.$groupId.'",
+    "replyToken": "'.$rtoken.'",
     "messages":[{
        "type": "flex",
     "altText": "Register Program SK v.9",
@@ -107,14 +112,11 @@ $json = '{
     }
     ]
 }';
-
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-           //$arrayPostData['to'] = $groupId;
-          //$arrayPostData['messages'][0]= $test;
-          pushMsg($arrayHeader,$json);
-        //replyMsg($arrayHeader,$arrayPostData);
+
+        replyMsgss($arrayHeader,$json);
 	}
 	else
 	{}
@@ -141,7 +143,7 @@ function pushMsg($arrayHeader,$json){
 	$result = curl_exec($ch);
 	curl_close($ch);
 	$file_name = "$messageID.jpg";
-        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/images/reg/$file_name";
+        $file_name = "ftp://meengineer:OC7IuVdsGP@ftp.meengineer.co.th/domains/meengineer.co.th/public_html/picREG/$file_name";
 	$fp = fopen($file_name, 'wb');
 	fwrite($fp, $result);
 	fclose($fp);
@@ -154,6 +156,19 @@ function pushMsg($arrayHeader,$json){
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
         curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+    }
+	    function replyMsgss($arrayHeader,$arrayPostData){
+        $strUrl = "https://api.line.me/v2/bot/message/reply";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$arrayPostData);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);

@@ -10,7 +10,6 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
-	$rtoken = $arrayJson['events'][0]['replyToken'];
     $message = $arrayJson['events'][0]['message']['text'];
     $messageID = $arrayJson['events'][0]['message']['id'];
     $messagePIC =  $arrayJson['events'][0]['message']['type'];
@@ -28,20 +27,10 @@
         curl_close ($ch);
         $character = json_decode($result);
         $displayName = $character->displayName;  
-        $str1 = urlencode($displayName);
-   	$baseUrl = "http://1.179.149.85:2146/register/default2.aspx";
-    	$resource = "?serial=$message&name=$str1";
-    	$ch = curl_init(); 
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl$resource"); 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        $output = curl_exec($ch); 
-        curl_close($ch);  
-    	$output1 = "ไลน์ผู้ใช้งาน : $displayName\nรหัสลงทะเบียน : $output\n $id\n $groupId";
-$code = '100041';
-        $bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
-        $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');
+        $output = replyCode($message);
 $json = '{
-    "replyToken": "'.$rtoken.'",
+
+	"replyToken": "'.$arrayJson['events'][0]['replyToken'].'",
     "messages":[{
        "type": "flex",
     "altText": "Register Program SK v.9",
@@ -112,11 +101,11 @@ $json = '{
     }
     ]
 }';
+
     if($messagePIC == "text"){
 	if(is_numeric ($message))
 	{
-
-        replyMsgss($arrayHeader,$json);
+        replyMsg2($arrayHeader,$json);
 	}
 	else
 	{}
@@ -161,7 +150,7 @@ function pushMsg($arrayHeader,$json){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
-	    function replyMsgss($arrayHeader,$arrayPostData){
+	function replyMsg2($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$strUrl);
@@ -173,6 +162,44 @@ function pushMsg($arrayHeader,$json){
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
+    }
+	function replyCode($txtinput){
+		$txtinput= trim($txtinput);
+		$Int = array_fill( 0, 30, null);
+		$strArrays = array_fill( 0, 20, null);
+		$txtR = "";
+        $str = "";
+		$length = strlen(substr($txtinput, 0, -2));		
+		for ($i = 0; $i <= $length; $i++) {
+			$strArrays[$i]=substr($txtinput, $i, 2);
+		} 
+		$num = strlen(substr($txtinput, 0, -1));
+		for ($j = 0; $j <= $num; $j++) {
+			$txtR = $strArrays[strlen(substr($txtinput, 0, -1))-$j];
+			$length1 = strlen(substr($txtR, 0, -1));
+			for ($k = 0; $k <= $length1; $k++) {
+				$binary = txt2bin(substr($txtR, $k, 1));
+				$Int[$k]=bindec($binary);
+			} 
+			$str1 = "0";
+			$num1 = strlen(substr($txtR, 0, -1));
+			for ($l = 0; $l <= $length; $l++) {
+				$str1 = round(($str1^$Int[$l])%10);
+			}
+			if ($str1 >= 10)
+            {	
+                $str1 = "9";
+            }
+			$str = $str.$str1;			
+		}
+        return $str;
+    }
+	function txt2bin($strb) {
+      $text_array = explode("\r\n", chunk_split($strb, 1));
+      for ($n = 0; $n < count($text_array) - 1; $n++) {
+        $newstring = substr("0000".base_convert(ord($text_array[$n]), 10, 2), -8);
+      }
+	  return $newstring;
     }
    exit;
 ?>
